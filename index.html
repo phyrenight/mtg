@@ -3,20 +3,34 @@
   <head>
     <title> Magic the gathering card viewer</title>
     <meta charset='utf-8'>
-    <link href="">
+    <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
     <header class="">
       <h2>MTG</h2>
-      <nav></nav>
+      <nav>
+        <input type="search">
+          <button onclick="get_card_data">Search</button>
+      </nav>
     </header>
     <main class="container">
       <section class="row">
-        <div id="card_image"></div>
-        <div class="" id="card_info"></div>
+        <div id="card_image">
+          <img src="" id="image">
+        </div>
+        <div class="" id="card_info">
+          <p class="" id="card_name"></p>
+          <p class="" id="mana_cost"></p>
+          <p class="" id="rarity"></p>
+          <p class="" id="type"></p>
+          <p class="" id="set"></p>
+          <p class="" id="oracle_text"></p>
+        </div>
       </section>
       <section class="row">
         <div class="" id="prices"></div>
+        <p class="" id="us_price"></p>
+        <p class="" id="tix_price"></p>
       </section>
       <section class="row">
         <div class="" id="card_ruling"></div>
@@ -24,6 +38,6 @@
     </main>
     <footer>
     </footer>
-    <script></script>
+    <script src="js/getCardsDetails.js"></script>
   </body>
 </html>
