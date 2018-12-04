@@ -6,7 +6,7 @@ var get_card_data = fetch(
   "https://api.scryfall.com/cards/named?fuzzy=fireball")
   .then(function(result){
     return result.json()
-  }).then(function(myJson){                            
+  }).then(function(myJson){
     let card_image = document.getElementById("image");
     card_image.src = myJson["image_uris"]["small"];
     let card_name = document.getElementById("card_name");
@@ -33,20 +33,21 @@ var get_card_data = fetch(
     oracle_text.innerHTML = "<span class='col'>Text:</span>" +
                             "<span class='col'>" + 
                             myJson["oracle_text"] + "</span>";
-    return myJson
+    return myJson;
   }).then(function(myJson){
     let us_price = document.getElementById("us_price");
     us_price.innerHTML = "US price: $" + myJson["usd"];
     let tix_price = document.getElementById("tix_price");
     tix_price.innerHTML = "Tix price: $" + myJson["tix"];
-    return myJson['rulings_uri']
+    return myJson['rulings_uri'];
   }).then(function(myJson){
-    //arg: url string
+    //  arg: url string
     //  purpose: gets the ruling information for the card in question
     fetch(myJson).then(function(results){
       return results.json();
     }).then(function(result_json){
-    // 
+      // args: result_json - json object containing ruling information
+      //purpose: display ruling to html page
       let rulings = result_json;
       let card_rulings = document.getElementById("card_rulings");
       for (i in rulings["data"]){
@@ -65,7 +66,7 @@ var get_card_data = fetch(
     }).catch(function(error){
       console.log("Error: ", error);
     })
-  }).catch(function(error){ 
+  }).catch(function(error){
     console.log("Error: ", error);
   });
 
