@@ -21,18 +21,43 @@ var get_card_data = fetch("https://api.scryfall.com/cards/named?fuzzy=aust+com")
                             card_set.innerHTML = myJson["set_name"];
                             var oracle_text = document.getElementById("oracle_text");
                             oracle_text.innerHTML = myJson["oracle_text"];
-                            console.log(myJson)
+
                             return myJson
                            }).then(function(myJson){
                             let us_price = document.getElementById("us_price");
                             us_price.innerHTML = "US: $" + myJson["usd"];
-                            let tix_price = document.getElementById("tix_price")
-                            let tix_price_str = "tix price: $" + myJson["tix"]
+                            let tix_price = document.getElementById("tix_price");
+                            let tix_price_str = "tix price: $" + myJson["tix"];
                             tix_price.innerHTML = "tix price: $" + myJson["tix"];
 
                             return myJson['rulings_uri']
-                           }).catch(function(error){ 
-                            console.log("Error:", error)
+                          }).then(function(myJson){
+                            //arg: url string
+                            //  purpose: gets the ruling information for the card in question
+                              fetch(myJson).then(function(results){
+                                return results.json();
+                              }).then(function(result_json){
+                                // 
+                                let rulings = result_json;
+                                let card_rulings = document.getElementById("card_rulings");
+                                for (i in rulings["data"]){
+                                  let ruling_container = document.createElement("div");
+                                  let p_ruling = document.createElement("p");
+                                  let p_date = document.createElement("p");
+                                  ruling_container.className = "col-sm-12 col-md-12 col-lg-12";
+                                  let ruling_text = document.createTextNode(rulings["data"][i]["comment"]);
+                                  let date_text = document.createTextNode(rulings["data"][i]["published_at"]);
+                                  p_ruling.appendChild(ruling_text);
+                                  p_date.appendChild(date_text);
+                                  ruling_container.appendChild(p_ruling);
+                                  ruling_container.appendChild(p_date);
+                                  card_rulings.appendChild(ruling_container);
+                                }
+                              }).catch(function(error){
+                                console.log("Error: ", error);
+                              })
+                          }).catch(function(error){ 
+                            console.log("Error: ", error);
                           });
 
 get_card_data 
