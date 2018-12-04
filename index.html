@@ -16,22 +16,22 @@
     </div>
       <nav class="row justify-content-center">
         <input class="col-6 col-sm-4 col-md-5 col-lg-5" type="search">
-        <button class="col-3 col-sm-2  col-md-2 col-lg-2" onclick="get_card_data">Search</button>
+        <button class="col-4 col-sm-2  col-md-2 col-lg-2" onclick="get_card_data">Search</button>
       </nav>
     </header>
     <main class="container">
-      <section class="row">
-        <div class="col align-self-center" id="card_image">
-          <img src="" id="image">
+      <section class="row justify-content-around mt-5">
+        <div class="col-8 col-sm-2 col-md-2 col-lg-2 align-self-center row justify-content-center" id="card_image">
+          <img src="" id="image" class="col-auto">
         </div>
-        <div class="col" id="card_info">
-          <h5>Card details</h5>
-          <p class="row" id="card_name"></p>
-          <p class="row" id="mana_cost"></p>
-          <p class="row" id="rarity"></p>
-          <p class="row" id="type"></p>
-          <p class="row" id="set"></p>
-          <p class="row" id="oracle_text"></p>
+        <div class="col-8 col-sm-6 col-lg-4 mt-4 row justify-content-center" id="card_info">
+          <h5 class="col-12">Card details</h5>
+          <p class="col-12 row" id="card_name"></p>
+          <p class="col-12 row" id="mana_cost"></p>
+          <p class="col-12 row" id="rarity"></p>
+          <p class="col-12 row" id="type"></p>
+          <p class="col-12 row" id="set"></p>
+          <p class="col-12 row" id="oracle_text"></p>
         </div>
       </section>
       <section class="row">
