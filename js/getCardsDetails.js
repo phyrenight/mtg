@@ -6,29 +6,27 @@ var get_card_data = fetch("https://api.scryfall.com/cards/named?fuzzy=aust+com")
                            .then(function(result){
                             return result.json()
                            }).then(function(myJson){                            
-                            var card_data = myJson
-                            var card_image = document.getElementById("image");
+                            let card_image = document.getElementById("image");
                             card_image.src = myJson["image_uris"]["small"];
-                            var card_name = document.getElementById("card_name");
-                            card_name.innerHTML = myJson["name"]
-                            var mana_cost = document.getElementById("mana_cost");
-                            mana_cost.innerHTML = myJson["mana_cost"];
-                            var rarity = document.getElementById("rarity");
-                            rarity.innerHTML = myJson["rarity"];
-                            var card_type = document.getElementById("type");
-                            card_type.innerHTML = myJson["type_line"];
-                            var card_set = document.getElementById("set");
-                            card_set.innerHTML = myJson["set_name"];
-                            var oracle_text = document.getElementById("oracle_text");
-                            oracle_text.innerHTML = myJson["oracle_text"];
+                            let card_name = document.getElementById("card_name");
+                            card_name.innerHTML = "<span class='col'>Card Name:</span> " + "<span class='col'>" + myJson["name"] + "</span>";
+                            let mana_cost = document.getElementById("mana_cost");
+                            mana_cost.innerHTML = "<span class='col'>Mana Cost:</span>" + "<span class='col'>" + myJson["mana_cost"] + "</span>";
+                            let rarity = document.getElementById("rarity");
+                            rarity.innerHTML = "<span class='col'>Rarity:</span>" + "<span class='col'>" + myJson["rarity"] + "</span>";
+                            let card_type = document.getElementById("type");
+                            card_type.innerHTML = "<span class='col'>Type:</span>" + "<span class='col'>" + myJson["type_line"] + "</span>";
+                            let card_set = document.getElementById("set");
+                            card_set.innerHTML = "<span class='col'>Set Name:</span>" + "<span class='col'>" + myJson["set_name"] + "</span>";
+                            let oracle_text = document.getElementById("oracle_text");
+                            oracle_text.innerHTML = "<span class='col'>Text:</span>" + "<span class='col'>" + myJson["oracle_text"] + "</span>";
 
                             return myJson
                            }).then(function(myJson){
                             let us_price = document.getElementById("us_price");
-                            us_price.innerHTML = "US: $" + myJson["usd"];
+                            us_price.innerHTML = "US price: $" + myJson["usd"];
                             let tix_price = document.getElementById("tix_price");
-                            let tix_price_str = "tix price: $" + myJson["tix"];
-                            tix_price.innerHTML = "tix price: $" + myJson["tix"];
+                            tix_price.innerHTML = "Tix price: $" + myJson["tix"];
 
                             return myJson['rulings_uri']
                           }).then(function(myJson){
