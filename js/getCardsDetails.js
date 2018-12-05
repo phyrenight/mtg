@@ -37,10 +37,19 @@ function get_card_data(){
                             myJson["oracle_text"] + "</span>";
     return myJson;
   }).then(function(myJson){
+    // Price section
     let us_price = document.getElementById("us_price");
-    us_price.innerHTML = "US price: $" + myJson["usd"];
+    let dollars = myJson["usd"];
+    if (!myJson["usd"]){
+      dollars = "0.00";
+    }
+    us_price.innerHTML = "US price: $" + dollars;
     let tix_price = document.getElementById("tix_price");
-    tix_price.innerHTML = "Tix price: $" + myJson["tix"];
+    let tix = myJson["tix"];
+    if (!myJson["tix"]){
+      tix_price = "0.00";
+    }
+    tix_price.innerHTML = "Tix price: $" + tix;
     return myJson['rulings_uri'];
   }).then(function(myJson){
     //  arg: url string
