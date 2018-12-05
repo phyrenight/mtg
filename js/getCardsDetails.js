@@ -10,28 +10,28 @@ var get_card_data = fetch(
     let card_image = document.getElementById("image");
     card_image.src = myJson["image_uris"]["small"];
     let card_name = document.getElementById("card_name");
-    card_name.innerHTML = "<span class='col'>Card Name:</span> " + 
-                          "<span class='col'>" + 
+    card_name.innerHTML = "<span class='col-6'>Card Name:</span> " + 
+                          "<span class='col-6'>" + 
                           myJson["name"] + "</span>";
     let mana_cost = document.getElementById("mana_cost");
-    mana_cost.innerHTML = "<span class='col'>Mana Cost:</span>" + 
-                          "<span class='col'>" + 
+    mana_cost.innerHTML = "<span class='col-6'>Mana Cost:</span>" + 
+                          "<span class='col-6'>" + 
                           myJson["mana_cost"] + "</span>";
     let rarity = document.getElementById("rarity");
-    rarity.innerHTML = "<span class='col'>Rarity:</span>" + 
-                       "<span class='col'>" + 
+    rarity.innerHTML = "<span class='col-6'>Rarity:</span>" + 
+                       "<span class='col-6'>" + 
                        myJson["rarity"] + "</span>";
     let card_type = document.getElementById("type");
-    card_type.innerHTML = "<span class='col'>Type:</span>" + 
-                          "<span class='col'>" + 
+    card_type.innerHTML = "<span class='col-6'>Type:</span>" + 
+                          "<span class='col-6'>" + 
                           myJson["type_line"] + "</span>";
     let card_set = document.getElementById("set");
-    card_set.innerHTML = "<span class='col'>Set Name:</span>" + 
-                         "<span class='col'>" + 
+    card_set.innerHTML = "<span class='col-6'>Set Name:</span>" + 
+                         "<span class='col-6'>" + 
                          myJson["set_name"] + "</span>";
     let oracle_text = document.getElementById("oracle_text");
-    oracle_text.innerHTML = "<span class='col'>Text:</span>" +
-                            "<span class='col'>" + 
+    oracle_text.innerHTML = "<span class='col-4'>Text:</span>" +
+                            "<span class='col-12'>" + 
                             myJson["oracle_text"] + "</span>";
     return myJson;
   }).then(function(myJson){
