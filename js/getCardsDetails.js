@@ -59,8 +59,8 @@ var get_card_data = fetch(
         let date_text = document.createTextNode(rulings["data"][i]["published_at"]);
         p_ruling.appendChild(ruling_text);
         p_date.appendChild(date_text);
-        ruling_container.appendChild(p_ruling);
         ruling_container.appendChild(p_date);
+        ruling_container.appendChild(p_ruling);
         card_rulings.appendChild(ruling_container);
       }
     }).catch(function(error){
