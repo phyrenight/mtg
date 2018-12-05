@@ -52,6 +52,7 @@ function get_card_data(){
       //purpose: display ruling to html page
       let rulings = result_json;
       let card_rulings = document.getElementById("card_rulings");
+      card_rulings.innerHTML = "";
       for (i in rulings["data"]){
         let ruling_container = document.createElement("div");
         let p_ruling = document.createElement("p");
