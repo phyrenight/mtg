@@ -1,9 +1,11 @@
 // Magic_card.js
 // fetch magic card details
 
-
-var get_card_data = fetch(
-  "https://api.scryfall.com/cards/named?fuzzy=fireball")
+function get_card_data(){
+  let card_name = document.getElementById("search_item").value;
+  card_name = replaceSpaces(card_name);
+ fetch(
+  "https://api.scryfall.com/cards/named?fuzzy="+card_name)
   .then(function(result){
     return result.json()
   }).then(function(myJson){
@@ -69,5 +71,13 @@ var get_card_data = fetch(
   }).catch(function(error){
     console.log("Error: ", error);
   });
+} 
 
-get_card_data 
+
+function replaceSpaces(card_name){
+  card_name=card_name.replace(/ /g,"+");
+  console.log(card_name);
+  return card_name;
+}
+
+get_card_data()
