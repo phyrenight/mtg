@@ -2,6 +2,8 @@
 // fetch magic card details
 const replaceSpaces = require('./replaceSpaces')
 
+let search = document.getElementById("search")
+search.onclick= get_card_data;
 
 function get_card_data(){
   let card_name = document.getElementById("search_item").value;
